@@ -1,9 +1,11 @@
 package poly.macroutil
 
+import org.scalatest._
+
 /**
  * @author Tongfei Chen (ctongfei@gmail.com).
  */
-object TypeCastTest extends App {
+class TypeCastTest extends FunSuite {
 
   import poly.macroutil.TypeCast._
 
@@ -12,20 +14,21 @@ object TypeCastTest extends App {
   trait C
   class D extends A with C
 
-  val a = new A
-  val b = new B
-  val c = new C {}
-  val d = new D
+  test("Type cast macros") {
+    val a = new A
+    val b = new B
+    val c = new C {}
+    val d = new D
 
-  assert(a.is[A])
-  assert(!a.is[B])
-  assert(!a.is[C])
-  assert(!a.is[D])
-  assert(b.is[A])
-  assert(b.is[B])
-  assert(!b.is[C])
-  assert(!b.is[D])
-
+    assert(a.is[A])
+    assert(!a.is[B])
+    assert(!a.is[C])
+    assert(!a.is[D])
+    assert(b.is[A])
+    assert(b.is[B])
+    assert(!b.is[C])
+    assert(!b.is[D])
+  }
 
 
 }

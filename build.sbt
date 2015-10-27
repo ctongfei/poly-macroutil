@@ -1,6 +1,6 @@
 name := "poly-macroutil"
 
-version := "0.2.0-SNAPSHOT"
+version := "0.3.0-SNAPSHOT"
 
 scalaVersion := "2.11.7"
 
@@ -8,7 +8,13 @@ isSnapshot := true
 
 organization := "me.tongfei"
 
+resolvers += Resolver.sonatypeRepo("releases")
+
+addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0-M5" cross CrossVersion.full)
+
 libraryDependencies += "org.scala-lang" % "scala-reflect" % scalaVersion.value
+
+libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.4" % Test
 
 libraryDependencies += "com.storm-enroute" %% "scalameter-core" % "0.7" % Test
 
